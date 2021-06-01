@@ -18,20 +18,22 @@
                    placeholder="First Name (required)"
                    required
                    minlength="3"
-                   formControlName="firstName"
-                   [ngClass]="{'is-invalid': (customerForm.touched || customerForm.dirty) && !customerForm.valid }" />
-            <span class="invalid-feedback">
-              <span *ngIf="customerForm.errors?.required">
-                Please enter your first name.
-              </span>
-              <span *ngIf="customerForm.errors?.minlength">
-                The first name must be longer than 3 characters.
-              </span>
-            </span>
+                   formControlName="firstName" 
+                   [ngClass]="{'is-invalid': (customerForm.get('firstName')?.touched ||
+                                              customerForm.get('firstName')?.dirty) &&
+                                             !customerForm.get('firstName')?.valid }" />
+                                             <span class="invalid-feedback">
+                                              <span *ngIf="customerForm.get('firstName')?.errors?.required">
+                                                Please enter your first name.
+                                              </span>
+                                              <span *ngIf="customerForm.get('firstName')?.errors?.minlength">
+                                                The first name must be longer than 3 characters.
+                                              </span>
+                                            </span>
           </div>
         </div>
   
-        <div class="form-group row mb-2">
+       <div class="form-group row mb-2">
           <label class="col-md-2 col-form-label"
                  for="lastNameId">Last Name</label>
           <div class="col-md-8">
@@ -42,19 +44,21 @@
                    required
                    maxlength="50"
                    formControlName="lastName"
-                   [ngClass]="{'is-invalid': (customerForm.touched || customerForm.dirty) && !customerForm.valid }" />
+                   [ngClass]="{'is-invalid': (customerForm.get('lastName')?.touched ||
+                                              customerForm.get('lastName')?.dirty) &&
+                                             !customerForm.get('lastName')?.valid }" />
             <span class="invalid-feedback">
-              <span *ngIf="customerForm.errors?.required">
+              <span *ngIf="customerForm.get('lastName')?.errors?.required">
                 Please enter your last name.
               </span>
-              <span *ngIf="customerForm.errors?.maxlength">
+             <span *ngIf="customerForm.get('lastName')?.errors?.maxlength">
                 The last name must be less than 50 characters.
-              </span>
+              </span> 
             </span>
           </div>
-        </div>
+        </div> 
   
-        <div class="form-group row mb-2">
+      <div class="form-group row mb-2">
           <label class="col-md-2 col-form-label"
                  for="emailId">Email</label>
           <div class="col-md-8">
@@ -65,17 +69,19 @@
                    required
                    email
                    formControlName="email"
-                   [ngClass]="{'is-invalid': (customerForm.touched || customerForm.dirty) && !customerForm.valid }" />
+                   [ngClass]="{'is-invalid': (customerForm.get('email')?.touched ||
+                                              customerForm.get('email')?.dirty) &&
+                                             !customerForm.get('email')?.valid }" />
             <span class="invalid-feedback">
-              <span *ngIf="customerForm.errors?.required">
+              <span *ngIf="customerForm.get('email')?.errors?.required">
                 Please enter your email address.
               </span>
-              <span *ngIf="customerForm.errors?.email">
+              <span *ngIf="customerForm.get('email')?.errors?.email">
                 Please enter a valid email address.
               </span>
             </span>
           </div>
-        </div>
+        </div> 
 <!--   
         <div class="form-group row mb-2">
           <div class="col-md-8">
